@@ -1,3 +1,4 @@
+
 var app = angular.module("FreshApp", ["ngRoute", "firebase"]);
 
   app.config(function($routeProvider) {
