@@ -1,9 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>ReFresh</title>
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<!-- CSS -->
+	<link rel="stylesheet" href="./style.css">
+	<!-- Angular -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+	<!-- Angular Route -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
+	<!-- Firebase -->
+	<script src="https://www.gstatic.com/firebasejs/3.0.3/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+	<script src="https://cdn.firebase.com/libs/angularfire/2.0.0/angularfire.min.js"></script>
+	<script>
+		var config = {
+			apiKey: "AIzaSyCodsZXm1QAdy67TjOppHM8Q82uQ1MEvP4",
+			authDomain: "refresh-c0e55.firebaseapp.com",
+			databaseURL: "https://refresh-c0e55.firebaseio.com",
+			storageBucket: "",
+		};
+		firebase.initializeApp(config);
+	</script>
+	<!-- js -->
+	<script type="text/javascript" src="./script.js"></script>
 </head>
-<body>
-
+<body ng-app="FreshApp">
+	<div ng-view></div>	
 </body>
 </html>
