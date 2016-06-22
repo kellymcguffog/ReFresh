@@ -33,6 +33,19 @@
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
 				<div class="wrapper">
+				<h1> Recipes Search </h1>
+					<form ng-submit="doSearch()">
+						<input type="text" class="form-control" ng-model="newRecipe" id="search-input">
+						<div class="alert alert-success" ng-show="successMessage">{{successMessage}}</div>
+ 						<div class="alert alert-danger" ng-show="errorMessage">{{errorMessage}}</div>
+					</form>
+					<ol>
+						<li ng-repeat="recipe in recipes"> <a href={{recipe.f2f_url}}> {{recipe.title}} </a> 
+								<div> 
+								<small> <img src={{recipe.image_url}}> </small>
+								</div>
+						</li>
+					</ol>
 				</div>
 			</div>
 		</div>
