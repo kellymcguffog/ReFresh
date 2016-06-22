@@ -84,6 +84,3 @@ app.controller("ListCtrl", function($scope, $firebaseArray, $firebaseAuth, $loca
 		$scope.items.$remove(item);
 	};
 });
-
-app.controller("RecipesCtrl", function($scope, $http, $firebaseAuth, $location){
-	var auth = $firebaseAuth();
