@@ -1,7 +1,7 @@
 
 var app = angular.module("FreshApp", ["ngRoute", "firebase"]);
 
-  app.config(function($routeProvider) {
+app.config(function($routeProvider) {
   $routeProvider.when("/login", {
     controller: "LoginCtrl",
     templateUrl: "templates/login.html"
@@ -38,6 +38,7 @@ app.controller("LoginCtrl", function($scope, $location, $firebaseAuth) {
 		  });
 	}
 });
+
 app.controller("ExpirationCtrl", function($scope, $firebaseArray, $firebaseAuth, $location){
 	var auth = $firebaseAuth();
 	var ref = firebase.database().ref().child("foods");
@@ -87,3 +88,34 @@ app.controller("ListCtrl", function($scope, $firebaseArray, $firebaseAuth, $loca
 
 app.controller("RecipesCtrl", function($scope, $http, $firebaseAuth, $location){
 	var auth = $firebaseAuth();
+	
+	// a536a2646f5a9b67378a243e824e81e9
+
+	var searchRecipes = function(searchTerm) {
+		$http({
+			method: "GET",
+			url: "https://community-food2fork.p.mashape.com/search?key=a536a2646f5a9b67378a243e824e81e9&q=" + searchTerm /* FILL ME IN */,
+			headers: {
+	       	 	"X-Mashape-Key": "KrZbO5yzSumshBj76mYJ0okrsS2Bp1QEnvNjsnsl7FsgbPngq7"
+	     	 },
+	     	dataType: "json"
+		}).then(function(response) {
+			$scope.recipes = [];
+			$scope.recipes = response.data.recipes;
+			console.log (response.data.recipes);
+		});
+	};
+
+	$scope.doSearch = function() {
+		searchRecipes($scope.newRecipe);
+		console.log($scope.newRecipe);
+		if ($scope.newRecipe === false) {
+			$scope.errorMessage= "Your search did not reveal any results"
+		}
+	};
+
+
+});
+
+
+
