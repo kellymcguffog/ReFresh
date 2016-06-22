@@ -31,21 +31,23 @@
 	</nav>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6">
-				<div class="wrapper">
+			<div class="col-md-12">
+				<div class="food">
 					<h1> My Groceries</h1>
 					<form ng-submit="addFood()">
 						<input type="text" placeholder="Add to List..." class="form-control" ng-model="newFood">
+					</div>
+					<div class="dates">
 						<h1>Expiration Dates</h1>
 						<input type="text" placeholder="mm/dd/yyyy" class="form-control" ng-model="newDate">
-						<br><button type="submit">Submit</button>
-					</form>
-					<ol> 
-						<li ng-repeat="food in foods"> {{food.foodName}} {{food.expirationDate}}
-							<span ng-click="remove($index)">&times;</span>
-						</li>
-					</ol>
-				</div>
+					</div>
+					<br><button type="submit">Submit</button>
+				</form>
+				<ol> 
+					<li ng-repeat="food in foods"> {{food.foodName}} {{food.expirationDate}}
+						<span ng-click="remove($index)">&times;</span>
+					</li>
+				</ol>
 			</div>
 		</div>
 	</div>
