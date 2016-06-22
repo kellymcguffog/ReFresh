@@ -117,5 +117,3 @@ app.controller("RecipesCtrl", function($scope, $http, $firebaseAuth, $location){
 
 });
 
-
-
