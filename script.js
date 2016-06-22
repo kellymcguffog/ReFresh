@@ -87,3 +87,4 @@ app.controller("ListCtrl", function($scope, $firebaseArray, $firebaseAuth, $loca
 
 app.controller("RecipesCtrl", function($scope, $http, $firebaseAuth, $location){
 	var auth = $firebaseAuth();
+});
