@@ -6,6 +6,8 @@
 .signout{
 	cursor: pointer;
 }
+
+/*LOGIN PAGE*/
 .fb{
 	width:auto;
 	height:50px;
@@ -107,4 +109,22 @@ display: inline-block;
 button{
 	display: inline-block;
 	width: auto;
+}
+
+/*EXPIRATION PAGE*/
+
+.kitchen{
+	text-align: center;
+	
+}
+
+/*RECIPES PAGE*/
+
+.link{
+	font-size: 20px;
+}
+
+.recipepics{
+	height: 300px;
+	width: 400px;
 }

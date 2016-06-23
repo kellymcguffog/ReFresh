@@ -12,7 +12,7 @@
 			<a class="navbar-brand">ReFresh</a>
 		</div>
 
-		<!-- Collect the nav links, forms, and other content for toggling -->
+	          	<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
@@ -32,7 +32,7 @@
 <div class="container">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
-				<div class="wrapper">
+				<div>
 				<h1> Recipes Search </h1>
 					<form ng-submit="doSearch()">
 						<input type="text" class="form-control" ng-model="newRecipe" id="search-input">
@@ -40,9 +40,9 @@
  						<div class="alert alert-danger" ng-show="errorMessage">{{errorMessage}}</div>
 					</form>
 					<ol>
-						<li ng-repeat="recipe in recipes"> <a href={{recipe.f2f_url}}> {{recipe.title}} </a> 
+						<li ng-repeat="recipe in recipes"> <a href={{recipe.f2f_url}} target="_blank"> <div class="link"> {{recipe.title}} </div> </a> 
 								<div> 
-								<small> <img src={{recipe.image_url}}> </small>
+								<small> <img class="recipepics" src={{recipe.image_url}}> </small>
 								</div>
 						</li>
 					</ol>

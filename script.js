@@ -1,5 +1,5 @@
 
-var app = angular.module("FreshApp", ["ngRoute", "firebase"]);
+var app = angular.module("FreshApp", ["ngRoute", "firebase", "angularMoment"]);
 
 app.config(function($routeProvider) {
   $routeProvider.when("/login", {
@@ -43,9 +43,11 @@ app.controller("ExpirationCtrl", function($scope, $firebaseArray, $firebaseAuth,
 	var auth = $firebaseAuth();
 	var ref = firebase.database().ref().child("foods");
 	$scope.foods = $firebaseArray(ref);
-	
+	console.log(auth);
 	$scope.newFood="";
 	$scope.newDate="";
+
+	
 
 	$scope.addFood = function(){
 		$scope.foods.$add({
@@ -65,6 +67,17 @@ app.controller("ExpirationCtrl", function($scope, $firebaseArray, $firebaseAuth,
     	auth.$signOut();
     	$location.path("/login");
     }
+
+   auth.$onAuthStateChanged(function(firebaseUser) {
+    	if (firebaseUser) {
+      	$scope.firebaseUser = firebaseUser;
+      	console.log(firebaseUser);
+    	} else {
+      	console.log(firebaseUser);
+      	$location.path("/login");
+    	}
+  	});
+
 });
 
 app.controller("ListCtrl", function($scope, $firebaseArray, $firebaseAuth, $location){
@@ -84,6 +97,21 @@ app.controller("ListCtrl", function($scope, $firebaseArray, $firebaseAuth, $loca
 	$scope.remove=function(item){
 		$scope.items.$remove(item);
 	};
+
+	$scope.logout = function() {
+    	auth.$signOut();
+    	$location.path("/login");
+    }
+
+     auth.$onAuthStateChanged(function(firebaseUser) {
+    	if (firebaseUser) {
+      	$scope.firebaseUser = firebaseUser;
+      	console.log(firebaseUser);
+    	} else {
+      	console.log(firebaseUser);
+      	$location.path("/login");
+    	}
+  	});
 });
 
 app.controller("RecipesCtrl", function($scope, $http, $firebaseAuth, $location){
@@ -103,17 +131,53 @@ app.controller("RecipesCtrl", function($scope, $http, $firebaseAuth, $location){
 			$scope.recipes = [];
 			$scope.recipes = response.data.recipes;
 			console.log (response.data.recipes);
+			if (response.data.recipes.length=== 0) {
+				$scope.errorMessage= "Your search did not reveal any results"
+			}
 		});
 	};
 
 	$scope.doSearch = function() {
 		searchRecipes($scope.newRecipe);
-		console.log($scope.newRecipe);
-		if ($scope.newRecipe === false) {
-			$scope.errorMessage= "Your search did not reveal any results"
-		}
 	};
+
+	$scope.logout = function() {
+    	auth.$signOut();
+    	$location.path("/login");
+    }
+
+     auth.$onAuthStateChanged(function(firebaseUser) {
+    	if (firebaseUser) {
+      	$scope.firebaseUser = firebaseUser;
+      	console.log(firebaseUser);
+    	} else {
+      	console.log(firebaseUser);
+      	$location.path("/login");
+    	}
+  	});
 
 
 });
+
+
+app.controller("FavoritesCtrl", function($scope, $firebaseArray, $firebaseAuth, $location){
+	var auth = $firebaseAuth();
+
+     auth.$onAuthStateChanged(function(firebaseUser) {
+    	if (firebaseUser) {
+      	$scope.firebaseUser = firebaseUser;
+      	console.log(firebaseUser);
+    	} else {
+      	console.log(firebaseUser);
+      	$location.path("/login");
+    	}
+  	});
+
+    $scope.logout = function() {
+    	auth.$signOut();
+    	$location.path("/login");
+    } 
+});
+
+
 
