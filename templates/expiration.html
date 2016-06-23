@@ -29,10 +29,11 @@
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->
 	</nav>
+	<div class="KitchenImg">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
-				<div class="kitchen"> <h1> My Kitchen </h1> </div>
+			<div class="col-md-12 expires">
+				<h1> My Kitchen </h1>
 				<div class="test"> {{test}} </div>
 				<div class="food">
 					<h2> My Food</h2>
@@ -43,13 +44,20 @@
 						<h2> My Expiration Dates</h2>
 						<input type="text" placeholder="mm/dd/yyyy" class="form-control" ng-model="newDate">
 					</div>
-					<br> <button ng-click="addFood()"> Submit </button>
+					<br><button class="submit" ng-click="addFood()">Submit</button>
 				</form>
-				<ol> 
-					<li ng-repeat="food in foods"> {{food.foodName}} <span> expires </span> <span am-time-ago="food.expirationDate"></span>
-						<span ng-click="remove($index)">&times;</span>
-					</li>
-				</ol>
+				<ol class="listnums"> 
+                    <br><li class="list" ng-repeat="food in foods"> 
+                        <div class="expired" ng-show="food.expirationDate < now">
+                            {{food.foodName}} <span> expired on </span> <span>{{food.expirationDate | date: "MM/dd/yyyy"}}</span>
+                            <span class="x" ng-click="remove($index)">&times;</span>
+                        </div>
+                        <div ng-show="food.expirationDate > now">
+                            {{food.foodName}} <span> will expire </span> <span am-time-ago="food.expirationDate"></span>
+                            <span class="x" ng-click="remove($index)">&times;</span>
+                        </div>
+                    </li>
+                </ol>
 			</div>
 		</div>
 	</div>

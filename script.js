@@ -46,13 +46,14 @@ app.controller("ExpirationCtrl", function($scope, $firebaseArray, $firebaseAuth,
 	console.log(auth);
 	$scope.newFood="";
 	$scope.newDate="";
+	$scope.now=new Date();
 
 	
 
 	$scope.addFood = function(){
 		$scope.foods.$add({
 			foodName: $scope.newFood,
-			expirationDate: $scope.newDate
+			expirationDate: moment($scope.newDate).valueOf()
 		});
 		$scope.newFood="";
 		$scope.newDate="";
