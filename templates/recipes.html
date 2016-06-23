@@ -1,54 +1,56 @@
 <div ng-controller="RecipesCtrl">
-<nav class="navbar navbar-inverse">
-	<div class="container-fluid">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand">ReFresh</a>
-		</div>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand">ReFresh</a>
+			</div>
 
-	          	<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#/">Expiring Foods</a></li>
-						<li><a href="#/list">Grocery List</a></li>
-						<li><a href="#/recipes">Recipes</a></li>
-						<li><a href="#/favorites">Favorites</a></li>
-					</ul>
-				</li>
-				<li><a class="signout" ng-click="logout()">Sign Out</a></li>
-			</ul>
-		</div><!-- /.navbar-collapse -->
-	</div><!-- /.container-fluid -->
-</nav>
-<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
-				<div>
-				<h1> Recipes Search </h1>
-					<form ng-submit="doSearch()">
-						<input type="text" class="form-control" ng-model="newRecipe" id="search-input">
-						<div class="alert alert-success" ng-show="successMessage">{{successMessage}}</div>
- 						<div class="alert alert-danger" ng-show="errorMessage">{{errorMessage}}</div>
-					</form>
-					<ol>
-						<li ng-repeat="recipe in recipes"> <a href={{recipe.f2f_url}} target="_blank"> <div class="link"> {{recipe.title}} </div> </a> 
-								<div> 
-								<small> <img class="recipepics" src={{recipe.image_url}}> </small>
-								</div>
-						</li>
-					</ol>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/">Expiring Foods</a></li>
+							<li><a href="#/list">Grocery List</a></li>
+							<li><a href="#/recipes">Recipes</a></li>
+							<li><a href="#/favorites">Favorites</a></li>
+						</ul>
+					</li>
+					<li><a class="signout" ng-click="logout()">Sign Out</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+	<div class="black">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div>
+						<h1> Recipes Search </h1>
+						<form ng-submit="doSearch()">
+							<input type="text" class="form-control" ng-model="newRecipe" id="search-input">
+							<div class="alert alert-success" ng-show="successMessage">{{successMessage}}</div>
+							<div class="alert alert-danger" ng-show="errorMessage">{{errorMessage}}</div>
+						</form>
+						<table  ng-repeat="recipe in recipes"> 
+							<tr>
+								<td><a href={{recipe.f2f_url}} target="_blank"><div class="link"> {{recipe.title}}</div></a>
+									<img class="recipepics" src={{recipe.image_url}}>
+								</td>
+							</tr>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
+
 
