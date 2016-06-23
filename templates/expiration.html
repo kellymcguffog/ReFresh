@@ -32,19 +32,21 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
+				<div class="kitchen"> <h1> My Kitchen </h1> </div>
+				<div class="test"> {{test}} </div>
 				<div class="food">
-					<h1> My Groceries</h1>
+					<h2> My Food</h2>
 					<form ng-submit="addFood()">
 						<input type="text" placeholder="Add to List..." class="form-control" ng-model="newFood">
 					</div>
 					<div class="dates">
-						<h1>Expiration Dates</h1>
+						<h2> My Expiration Dates</h2>
 						<input type="text" placeholder="mm/dd/yyyy" class="form-control" ng-model="newDate">
 					</div>
-					<br><button type="submit">Submit</button>
+					<br> <button ng-click="addFood()"> Submit </button>
 				</form>
 				<ol> 
-					<li ng-repeat="food in foods"> {{food.foodName}} {{food.expirationDate}}
+					<li ng-repeat="food in foods"> {{food.foodName}} <span> expires </span> <span am-time-ago="food.expirationDate"></span>
 						<span ng-click="remove($index)">&times;</span>
 					</li>
 				</ol>
