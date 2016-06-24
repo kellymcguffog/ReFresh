@@ -43,7 +43,6 @@ app.controller("ExpirationCtrl", function($scope, $firebaseArray, $firebaseAuth,
 	var auth = $firebaseAuth();
 	var ref = firebase.database().ref().child("foods");
 	$scope.foods = $firebaseArray(ref);
-	console.log(auth);
 	$scope.newFood="";
 	$scope.newDate="";
 	$scope.now=new Date();
@@ -72,9 +71,7 @@ app.controller("ExpirationCtrl", function($scope, $firebaseArray, $firebaseAuth,
    auth.$onAuthStateChanged(function(firebaseUser) {
     	if (firebaseUser) {
       	$scope.firebaseUser = firebaseUser;
-      	console.log(firebaseUser);
     	} else {
-      	console.log(firebaseUser);
       	$location.path("/login");
     	}
   	});
@@ -107,9 +104,7 @@ app.controller("ListCtrl", function($scope, $firebaseArray, $firebaseAuth, $loca
      auth.$onAuthStateChanged(function(firebaseUser) {
     	if (firebaseUser) {
       	$scope.firebaseUser = firebaseUser;
-      	console.log(firebaseUser);
     	} else {
-      	console.log(firebaseUser);
       	$location.path("/login");
     	}
   	});
@@ -117,8 +112,6 @@ app.controller("ListCtrl", function($scope, $firebaseArray, $firebaseAuth, $loca
 
 app.controller("RecipesCtrl", function($scope, $http, $firebaseAuth, $location){
 	var auth = $firebaseAuth();
-	
-	// a536a2646f5a9b67378a243e824e81e9
 
 	var searchRecipes = function(searchTerm) {
 		$http({
@@ -131,7 +124,6 @@ app.controller("RecipesCtrl", function($scope, $http, $firebaseAuth, $location){
 		}).then(function(response) {
 			$scope.recipes = [];
 			$scope.recipes = response.data.recipes;
-			console.log (response.data.recipes);
 			if (response.data.recipes.length=== 0) {
 				$scope.errorMessage= "Your search did not reveal any results"
 			}
@@ -150,9 +142,7 @@ app.controller("RecipesCtrl", function($scope, $http, $firebaseAuth, $location){
      auth.$onAuthStateChanged(function(firebaseUser) {
     	if (firebaseUser) {
       	$scope.firebaseUser = firebaseUser;
-      	console.log(firebaseUser);
     	} else {
-      	console.log(firebaseUser);
       	$location.path("/login");
     	}
   	});
@@ -167,9 +157,7 @@ app.controller("FavoritesCtrl", function($scope, $firebaseArray, $firebaseAuth, 
      auth.$onAuthStateChanged(function(firebaseUser) {
     	if (firebaseUser) {
       	$scope.firebaseUser = firebaseUser;
-      	console.log(firebaseUser);
     	} else {
-      	console.log(firebaseUser);
       	$location.path("/login");
     	}
   	});
