@@ -112,6 +112,12 @@ app.controller("ListCtrl", function($scope, $firebaseArray, $firebaseAuth, $loca
 
 app.controller("RecipesCtrl", function($scope, $http, $firebaseAuth, $location){
 	var auth = $firebaseAuth();
+<<<<<<< HEAD
+=======
+
+	
+	// a536a2646f5a9b67378a243e824e81e9
+>>>>>>> acb8e6eebd0353c06058889cd9321970cc540899
 
 	var searchRecipes = function(searchTerm) {
 		$http({
@@ -148,7 +154,7 @@ app.controller("RecipesCtrl", function($scope, $http, $firebaseAuth, $location){
   	});
 
 
-});
+
 
 
 app.controller("FavoritesCtrl", function($scope, $firebaseArray, $firebaseAuth, $location){
