@@ -62,9 +62,10 @@ h5{
 .footer-text{
 	padding-top: 50px;
 	font-size: 12px;
-	align:top;
+	
 }
 .contact{
+	vertical-align: text-top;
 	color: white;
 	display: inline-block;
 	width: auto;
@@ -73,13 +74,14 @@ h5{
 	margin-bottom: 100px;
 }
 .about{
+	vertical-align: text-top;
 	color: white;
 	display: inline-block;
 	width: auto;
 	margin-right: 200px;
 	margin-bottom: 100px;
 }
-.Help{
+.Help{vertical-align: text-top;
 	color: white;
 	display: inline-block;
 	width: auto;
@@ -97,41 +99,22 @@ h5{
 	height: 100vh;
 	background-repeat: no-repeat;
 	background-size: 100%;
-	background-position: center;
+	background-position: top center;
 	position:relative;
-	padding:50px;
+	padding:60px;
 }
-.expires{
-	max-width: 800px;
-    width:800px;
-    height:600px;
-    margin-top: 30px; 
-    margin-right:auto; 
-    margin-bottom:0px; 
-    margin-left:auto;
-    background: rgba(0,0,0,.7);
-    padding: 20px;
-    color: white;
-    font-family: helvetica;
+.expires {
+	background-color: rgba(0,0,0, 0.7);
+	padding: 100px;
+	color: white;
+
 }
 .expired{
 	color:red;
 }
-.dates{
-	display: inline-block;
-	width: auto;
-	
-}
-.food{
-display: inline-block;
-	width: auto;
-	margin-left: 150px;
-	margin-right: 50px;
-	
-}
 button{
 	margin-top: 30px;
-	margin-left: 285px;
+	margin-left: 400px;
 	padding-right:50px;
 	padding-left: 50px;
 	padding-top: 10px;
@@ -147,17 +130,15 @@ button{
 	letter-spacing: 1px;
 }
 .listnums{
-padding-left: 160px;
+padding-left: 400px;
 font-size: 17px;
 font-family: helvetica;
 }
 
 /*RECIPES PAGE*/
 .black{
-	background: rgba(0,0,0,.7);
-	width:1441px;
-	height:1000px;
-	color: white;
+	background:white;
+	color: black;
 	font-family: helvetica;
 }
 .listing{
@@ -177,15 +158,24 @@ overflow-y: hidden;
 overflow-x:auto;
 white-space:nowrap;
 }
+.string{
+	-webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+
+}
+a{
+	color: black;
+}
 
 /*LIST PAGE*/
 .link{
-	font-size: 20px;
+	font-size: 10px;
 }
 
 .recipepics{
-	height: 300px;
-	width: 400px;
+	height: 200px;
+	width: 300px;
 }
 .ListImg{
 	background-image: url("9189e417868ad88164fb62f4d413a6f1.jpg");
@@ -222,4 +212,16 @@ h1{
 }
 .x{
 	cursor: pointer;
+}
+.fav{
+	background-image: url("slack-imgs.jpg");
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: center;
+	position:relative;
+	padding:50px;
+}
+.space{
+	height: 420px;
 }

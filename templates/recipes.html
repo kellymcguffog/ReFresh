@@ -32,25 +32,26 @@
 	<div class="black">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12">
-					<div>
-						<h1> Recipes Search </h1>
-						<form ng-submit="doSearch()">
-							<input type="text" class="form-control" ng-model="newRecipe" id="search-input">
-							<div class="alert alert-success" ng-show="successMessage">{{successMessage}}</div>
-							<div class="alert alert-danger" ng-show="errorMessage">{{errorMessage}}</div>
-						</form>
-						<table  ng-repeat="recipe in recipes"> 
-							<tr>
-								<td><a href={{recipe.f2f_url}} target="_blank"><div class="link"> {{recipe.title}}</div></a>
-									<img class="recipepics" src={{recipe.image_url}}>
-								</td>
-							</tr>
-						</table>
+			<div class="col-md-12">
+				<div>
+					<h1> Recipes Search </h1>
+					<br><form ng-submit="doSearch()">
+					<input type="text" class="form-control" ng-model="newRecipe" id="search-input">
+					<div class="alert alert-success" ng-show="successMessage">{{successMessage}}</div>
+					<div class="alert alert-danger" ng-show="errorMessage">{{errorMessage}}</div>
+				</form>
+				<br><ol class="string">
+				<div ng-repeat="recipe in recipes"> 
+					<a href={{recipe.f2f_url}} target="_blank" class="link" img class="recipepics" src={{recipe.image_url}}> {{recipe.title}}
+						<img class="recipepics" src={{recipe.image_url}}>
 					</div>
-				</div>
+				</ol>
+			</div>
+			<div class="space">
+			</div>
 			</div>
 		</div>
 	</div>
+</div>
 
 

@@ -30,20 +30,19 @@
 		</div><!-- /.container-fluid -->
 	</nav>
 	<div class="ListImg">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
-				<div class="wrapper GroceryList">
-					<h1>My Grocery List</h1>
-					<br><form ng-submit="addItem()">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+					<div class="GroceryList">
+						<h1>My Grocery List</h1>
+						<br><form ng-submit="addItem()">
 						<input type="text" placeholder="Add to List..." class="form-control" ng-model="newItem">
 					</form>
 					<ol class="foodlist"> 
 						<br><li ng-repeat="item in items"> {{item.itemName}}
-							<span class="x" ng-click="remove($index)">&times;</span>
+						<span class="x" ng-click="remove($index)">&times;</span>
 						</li>
 					</ol>
-					</div>
 				</div>
 			</div>
 		</div>
